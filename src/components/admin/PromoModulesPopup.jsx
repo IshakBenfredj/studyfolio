@@ -37,7 +37,7 @@ export default function PromoModulesPopup({
     <PopupContainer>
       <div className="bg-third sc:w-1/3 md:2/3 w-11/12 rounded-md p-3 space-y-3">
         <h1 className="text-secondary font-bold capitalize text-xl text-center">
-          Add Module to this promo
+          Add Module to this batch
         </h1>
         <form className="space-y-2" onSubmit={addModuleToPromo}>
           <Input selectBox set={setIdModule}>

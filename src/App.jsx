@@ -33,6 +33,7 @@ import ModuleDetails from "./pages/modules/index.jsx";
 import ActivityDetails from "./pages/modules/ActivityDetails.jsx";
 import Home from "./pages/student/Home.jsx";
 import Profile from "./pages/student/Profile.jsx";
+import ActivitySub from "./pages/modules/ActivitySub.jsx";
 
 function App() {
   const { setUser } = useContext(UserContext);
@@ -76,6 +77,7 @@ function App() {
           <Route path="addTest" element={<PrivateRoute Element={AddTest} allowedRoles={['teacher']} />} />
           <Route path="addQuiz" element={<PrivateRoute Element={AddQuizzes} allowedRoles={['teacher']} />} />
           <Route path="module/:id_module" element={<PrivateRoute Element={ModuleDetails} allowedRoles={['teacher']} />} />
+          <Route path="activity/:id_act" element={<PrivateRoute Element={ActivitySub} allowedRoles={['teacher']} />} />
         </Route>
 
         <Route path="/student" element={<PrivateRoute Element={DashboardStudent} allowedRoles={['student']} />}>

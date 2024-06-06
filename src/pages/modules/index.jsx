@@ -22,7 +22,8 @@ export default function ModuleDetails() {
   const getData = async () => {
     try {
       const { data } = await Axios.post("/get_ressource", { id_module });
-      setData(data);
+      console.log(data);
+      setData(data.data);
       console.log(data);
     } catch (error) {
       handleError(error.response.data.details);

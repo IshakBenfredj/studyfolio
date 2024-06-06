@@ -35,9 +35,10 @@ export default function ActivityDetails() {
           rightAnswers={rightAnswers}
           setRightAnswers={setRightAnswers}
           details={details}
+          activity_id={id_act}
         />
       ) : (
-        <Tests details={details}/>
+        <Tests details={details} activity_id={id_act} />
       )}
     </div>
   );

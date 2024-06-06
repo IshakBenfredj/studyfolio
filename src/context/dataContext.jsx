@@ -14,20 +14,26 @@ export default function DataContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [promoModules, setPromoModules] = useState(null);
 
+  function set(data) {
+    setGroups(data.groups);
+    setPromos(data.promos);
+    setStudents(data.students);
+    setTeachers(data.teachers.filter((t) => t.state !== "admin"));
+    setModules(data.modules);
+    setRoles(data.roles);
+    setPromoModules(data.studies);
+    setLoading(false)
+  }
+
   useEffect(() => {
     const getData = async () => {
       const { data } = await Axios.get("/get");
-      setGroups(data.groups);
-      setPromos(data.promos);
-      setStudents(data.students);
-      console.log(data.students);
-      setTeachers(data.teachers.filter((t) => t.state !== "admin"));
-      setModules(data.modules);
-      setRoles(data.roles);
-      setPromoModules(data.studies);
-      console.log(data.studies);
-      setLoading(false);
+      localStorage.setItem("data", JSON.stringify(data));
+      set(data);
+      // setLoading(false);
     };
+    const dataLocals = localStorage.getItem("data");
+    if (dataLocals) set(JSON.parse(dataLocals));
     getData();
   }, []);
 

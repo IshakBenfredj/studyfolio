@@ -27,6 +27,7 @@ export default function AddStudent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (methodAdd === "csv") {
       await handleStudentCsv();
       return;
